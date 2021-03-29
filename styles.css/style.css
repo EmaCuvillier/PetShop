@@ -1,0 +1,367 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+nav{
+    background-color: #66343B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 8vw;
+    border-bottom: 1px solid black;
+}
+#logoNav{
+    width: 7vw;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    color: #D6C675;
+    font-size: 4vh;
+    font-family: cursive;
+}
+nav a{
+    text-decoration: none;
+    margin-left: 2vw;
+    color: white;
+    font-size: 3vh;
+}
+.imgfondo{
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(/img/fondoHome.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+}
+footer{
+    background-color: #66343B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0vh 8vw;
+}
+#logoFooter{
+    width: 7vw;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.quienesSomos{
+    display: flex;
+    justify-content: space-between;
+    padding: 2vh 3vw;
+}
+.dondeEncontrarnos{
+    display: flex;
+    justify-content: space-between;
+    padding: 2vh 3vw;
+}
+footer div{
+    color: white;
+}
+#fotoGatoHome{
+    width: 25vw;
+}
+.tarjetaHome{
+    width: 40vw;
+}
+.tituloTarjeta{
+    background-color: #66343B;
+    color: white;
+    width: 40vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid black;
+}
+.textoTarjeta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 1vw;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.imagenTarjeta{
+    margin-left: 17vw;
+    margin-top: 4vh;
+}
+.tarjetasHome{
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh 4vw;
+}
+.tarjetaHeadHome{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30vw;
+    height: 30vh;
+    margin-left: 6vw;
+    padding: 4vh 2vw;
+    background-color: rgba(128, 128, 128, 0.356);
+    border-radius: 10px;
+}
+.tarjetaHeadHome h3{
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.tarjetaHeadHome p{
+    color: white;
+}
+.tarjetaHeadHome a{
+    text-decoration: none;
+    color: white;
+    background-color: #66343B;
+    padding: 1vh 2vw;
+    border-radius: 8px;
+}
+.tarjetaHeadHome a:hover{
+    color: #D6C675;
+}
+.tarjetaHomeProductos{
+    display: flex;
+    justify-content: center;
+    margin: 5vh 1vw
+}
+.tarjetaProductosHome{
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh 8vw;
+}
+.imgfondoFarmacia{
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(/img/fondoFarmacia.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+.imgfondoJuguetes{
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(/img/fondoJuguetes.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+.tarjetaProducto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    margin: 2vh 0.5vw;
+    position: relative;
+}
+.hvr-grow-shadow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.tarjetaProducto div h6{
+    max-height: 9vh;
+}
+.tarjetaProducto div a{
+    display: flex;
+    justify-content: center;
+}
+.tarjetaProducto div p{
+    display: flex;
+    justify-content: center;
+}
+.filtroTitulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1vh 2vw;
+    width: 100%;
+    margin-top: 5vh;
+}
+.tituloPagina{
+    background-color: #66343B;
+    color: white;
+    width: 40vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid black;
+}
+.contenedorProductos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2vh 5vw;
+    width: 90vw;
+    padding: 1vh 8vw;
+}
+.aNav:hover{
+    color: #D6C675;
+}
+.card-img-top{
+    margin-left: 1.9vw;
+}
+.back{
+    position: absolute;
+    display: none;
+    background-color: burlywood;
+    text-align: center;
+}
+.visible {
+    visibility: visible !important;
+    position: absolute;
+    background-color: #66343B;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    border-style: dotted;
+    border-width: 2px;
+    border-color: white;
+}
+.visible p{
+    color: white;
+    font-size: 2.3vh;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.invisible {
+    visibility: hidden !important;
+}
+.card-text{
+    font-weight: bolder;
+    font-size: 2.8vh;
+}
+.botonCarrito{
+    background-color: #66343B;
+    width: 2.5vw;
+    height: 5.3vh;
+    border-radius: 50px;
+    color: #D6C675;
+}
+.offcanvas-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.totalesCarrito h4{
+    background-color: #FFDE7D;
+    width: auto;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.totalCarrito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.unidadesMenos{
+    background-color: #F6416C;
+    height: 2vw;
+    width: 2vw;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+.unidadesMas{
+    background-color: #00B8A9;
+    height: 2vw;
+    width: 2vw;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+    margin-right: 5vw;
+}
+.cadaProductoCarrito{
+    width: auto;
+    border: 1px solid black;
+    padding-top: 1vh;
+    border-radius: 5px;
+    margin-bottom: 2vh;
+}
+.closeProducto{
+    margin-left: 5vw;
+    background-color: #E84545;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+    height: 2vw;
+    width: 2vw;
+    text-align: center;
+}
+.mainContacto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 70vh;
+    padding: 3vh 2vw;
+}
+.infoCompras{
+    display:flex;
+    margin: auto;
+    margin-bottom: 5vh;
+    width: 80vw;
+}
+.cadaInfoCompras{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    justify-content: center;
+    margin-right: 2vw;
+    padding: 1vh 1vw;
+    background-color: #d6c6757e;
+    border-radius: 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+}
+.cadaInfoCompras img{
+    width: 6vw;
+    margin-bottom: 2vh;
+}
+.sacarDescripcion{
+    color: black;
+    font-weight: bolder;
+    background-color: #66343B;
+    border: 1px solid #66343B;
+    position: absolute;
+    right: 1vw;
+    top: 1vh;
+}
