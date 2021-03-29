@@ -326,13 +326,6 @@ footer div{
     width: 2vw;
     text-align: center;
 }
-.mainContacto{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 70vh;
-    padding: 3vh 2vw;
-}
 .infoCompras{
     display:flex;
     margin: auto;
@@ -364,4 +357,84 @@ footer div{
     position: absolute;
     right: 1vw;
     top: 1vh;
+}
+form{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-right: 6vw;
+    width: 50vw;
+    padding: 1vh 1vw;
+}
+.checksForm{
+    display: flex;
+}
+.checksForm div{
+    margin-left: 2vw;
+}
+form button{
+    margin: 1vh 20vw;
+}
+.mainContacto{
+    display: flex;
+    flex-direction: row;
+    padding: 2vh 2vw;
+    align-items: center;
+    justify-content: center;
+
+}
+.dosInputs{
+    display: flex;
+}
+.cadaInput{
+    margin-right: 2vw;
+    width: 23vw;
+    margin-bottom: 2vh;
+}
+.informacionFormulario{
+    margin-right: 3vw;
+    text-align: center;
+}
+.informacionFormulario a{
+    background-color: #d6c675;
+    color: #66343B;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 1vh 2vw;
+}
+.informacionFormulario a:hover{
+    color: #66343B;
+}
+.footerContacto{
+    display: flex;
+    justify-content: center;
+}
+.logoFooterContacto{
+    width: 4vw;
+}
+.verDescripcion{
+    text-decoration: none;
+    color: black;
+    margin-bottom: 1vh;
+}
+.anadirCarrito{
+    margin-left: 0.7vw;
+}
+.cerrarDescripcion{
+    background-color: #66343B;
+    color: black;
+    font-weight: bolder;
+    position: absolute;
+    top: 0.3vh;
+    right: 0.3vw;
+    border: 1px solid #66343B;
+}
+.ultimasUnidades{
+    position: absolute;
+    background-color: #FF0015;
+    color: white;
+    top: 21vh;
+    right: 0;
+    font-size: 2vh;
+    width: 100%;
+    text-align: center;
 }

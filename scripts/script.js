@@ -7,10 +7,10 @@ var productos
 function miPrograma(data){
     for(let i = 0; i < data.response.length; i++){
         if(productosFiltrosFarmacia && data.response[i].tipo == 'Medicamento'){
-            crearTarjeta(data.response[i].nombre, data.response[i].precio, data.response[i].imagen, data.response[i].descripcion, data.response[i]._id)
+            crearTarjeta(data.response[i].nombre, data.response[i].precio, data.response[i].imagen, data.response[i].descripcion, data.response[i]._id, data.response[i].stock)
         }
         if(productosFiltrosJuguetes && data.response[i].tipo == 'Juguete'){
-            crearTarjeta(data.response[i].nombre, data.response[i].precio, data.response[i].imagen, data.response[i].descripcion, data.response[i]._i)
+            crearTarjeta(data.response[i].nombre, data.response[i].precio, data.response[i].imagen, data.response[i].descripcion, data.response[i]._id, data.response[i].stock)
         }
     }
 }
@@ -27,60 +27,49 @@ if(productosFiltrosJuguetes){
     productosFiltrosJuguetes.appendChild(div)
 }
 
-function crearTarjeta(nombre, precio, imagen, descripcion, id){
+function crearTarjeta(nombre, precio, imagen, descripcion, id, stock){
     const tarjeta = document.createElement('div')
         tarjeta.className = 'card tarjetaProducto hvr-grow-shadow'
-        tarjeta.setAttribute('id', id)
         tarjeta.innerHTML = `
         <div class='font'>
             <img src='${imagen}' class='card-img-top' style="width: 10vw;" alt='${nombre}'>
             <div class="card-body">
                <h6 class="card-title">${nombre}</h6>
                <p class="card-text">$${precio}</p>
-               <button id='${id}' class="btn btn-outline-success">Añadir al carrito</button>
+               <a id='btn1 ${id}' class='verDescripcion'>Ver descripcion..</a>
+               <button id='${id}' class="btn btn-outline-success anadirCarrito">Añadir al carrito</button>
             </div>
         </div>
         <div class='back invisible'>
         <p>${descripcion}</p> 
-        <button class='sacarDescripcion'>X</button>
+        <button id='btn2 ${id}' class='cerrarDescripcion'>X</button>
         </div>
             `
     div.appendChild(tarjeta)
-    const verDescripcion = document.createElement('button')
-    verDescripcion.innerText = 'ver descripcion'
-    tarjeta.appendChild(verDescripcion)
-    verDescripcion.addEventListener('click', function(e){
-        if(this.parentElement.children[1].className == 'back invisible'){
-            this.parentElement.children[1].className = 'visible'
+    document.getElementById(`btn1 ${id}`).addEventListener('click', function(e){
+        if(this.parentElement.parentElement.parentElement.children[1].className == 'back invisible'){
+            this.parentElement.parentElement.parentElement.children[1].className = 'visible'
+            ultimasUnidades.style.display = 'none'
         }
     })
-    document.querySelector('.sacarDescripcion').addEventListener('click', function(e){
+    document.getElementById(`btn2 ${id}`).addEventListener('click', function(e){
         this.parentElement.className = 'back invisible'
+        ultimasUnidades.style.display = 'block'
     })
+    document.getElementById(`${id}`).addEventListener('click', function(e){
+        arrayCarrito.push({nombre: nombre, precio: precio, id:id})
+        renderCarrito()
+        console.log(arrayCarrito)
+    })
+    const ultimasUnidades = document.createElement('p')
+    ultimasUnidades.innerText = 'Ultimas Unidades!!'
+    ultimasUnidades.className = 'ultimasUnidades'
+    if(stock < 5){
+        tarjeta.appendChild(ultimasUnidades)
+    }
 }
 
-
-const arrayCarrito = [{
-    descripcion: "Puede usar la bola interactiva de elasticidad para jugar con sus mascotas y fortalecer el vínculo, también ayuda a mejorar la inteligencia de las mascotas. El color brillante es fácil de despertar el interés de las mascotas y matar el tiempo aburrido. Juegue con él, el perro reducirá el daño de sus muebles y se sentirá menos solo cuando no esté en casa.",
-    imagen: "https://cdn.shopify.com/s/files/1/0406/8003/0364/products/product-image-1432090831_1024x1024.jpg?v=1592521725",
-    nombre: "Pelota interactiva de goma",
-    precio: 450,
-    stock: 18,
-    tipo: "Juguete",
-    __v: 0,
-    _id: "5f204f86bf2ede0017e48507"
-},
-{
-    descripcion: "Puede usar la bola interactiva de elasticidad para jugar con sus mascotas y fortalecer el vínculo, también ayuda a mejorar la inteligencia de las mascotas. El color brillante es fácil de despertar el interés de las mascotas y matar el tiempo aburrido. Juegue con él, el perro reducirá el daño de sus muebles y se sentirá menos solo cuando no esté en casa.",
-    imagen: "https://cdn.shopify.com/s/files/1/0406/8003/0364/products/product-image-1432090831_1024x1024.jpg?v=1592521725",
-    nombre: "Pelota interactiva de goma",
-    precio: 450,
-    stock: 18,
-    tipo: "Juguete",
-    __v: 0,
-    _id: "5f204f86bf2ede0017e48507"
-}
-]
+var arrayCarrito = []
 
 const cuerpoCarrito = document.getElementById('cuerpoCarrito')
 
@@ -89,11 +78,11 @@ divCarrito.className = 'contenedorProductosCarrito'
 if(cuerpoCarrito){
     cuerpoCarrito.appendChild(divCarrito)
 }
-
+const productosCarrito = document.createElement('div')
+productosCarrito.className = 'productosCarrito'
 function renderCarrito (){
+    productosCarrito.innerHTML = ''
     arrayCarrito.map(producto => {
-        const  productosCarrito = document.createElement('div')
-        productosCarrito.className = 'productosCarrito'
         productosCarrito.innerHTML = `
         <div class="cadaProductoCarrito">
             <div class="d-flex justify-content-center">
@@ -110,16 +99,53 @@ function renderCarrito (){
     })
 }
 
-renderCarrito()
 
 
+//validacion formulario
+const email = document.getElementById('mail')
+const regexEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+const enviarFormulario = document.getElementById('enviarFormulario')
 
-const email = document.getElementById("mail");
+function validarFormulario(){
+    enviarFormulario.addEventListener('click', function(e){
+        e.preventDefault()
+        if(document.getElementById('nombre').value.length == 0){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Debes introducir un nombre'
+            })
+        }else if(document.getElementById('apellido').value == 0){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Debes introducir un apellido'
+            })
+        }else if(!regexEmail.test(email.value)){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Debes ingresar un correo valido'
+            })
+        }else if(document.getElementById('areaComentario').value.length == 0){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Debes introducir un comentario'
+            })
+        }else{
+            Swal.fire({
+                icon: 'success',
+                title: `Muchas gracias ${document.getElementById('nombre').value}`,
+                text: 'Nos pondremos en contacto a la brevedad'
+            })
+            document.getElementById("form").reset()
+        }
+        
+    })
+}
+const form = document.getElementById('form')
+if(form){
+    validarFormulario()
+}
 
-email.addEventListener("input", function (event) {
-  if (email.validity.typeMismatch) {
-    email.setCustomValidity("¡Se esperaba una dirección de correo electrónico!");
-  } else {
-    email.setCustomValidity("");
-  }
-});
