@@ -31,14 +31,12 @@ function crearTarjeta(nombre, precio, imagen, descripcion, id, stock){
     const tarjeta = document.createElement('div')
         tarjeta.className = 'card tarjetaProducto hvr-grow-shadow'
         tarjeta.innerHTML = `
-        <div class='font'>
-            <div class='card-img-top'>
-               <img src='${imagen}' style="width: 10vw;" alt='${nombre}'>
-            </div>
+        <div class='font'> 
+            <img class='card-img-top' src='${imagen}' alt='${nombre}'>
             <div class="card-body">
                <h6 class="card-title">${nombre}</h6>
                <p class="card-text">$${precio}</p>
-               <a id='btn1 ${id}' class='verDescripcion'>Ver descripcion..</a>
+               <a id='btn1 ${id}' class='verDescripcion'>Ver descripción..</a>
                <button id='${id}' class="btn btn-outline-success anadirCarrito">Añadir al carrito</button>
             </div>
         </div>
@@ -58,10 +56,10 @@ function crearTarjeta(nombre, precio, imagen, descripcion, id, stock){
         this.parentElement.className = 'back invisible'
         ultimasUnidades.style.display = 'block'
     })
-    document.getElementById(`${id}`).addEventListener('click', function(e){
+    document.getElementById(`${id}`).addEventListener('click', function(e){ 
         arrayCarrito.push({nombre: nombre, precio: precio, id:id, cantidad: 1})
-        renderCarrito(arrayCarrito) 
-        console.log(arrayCarrito)
+        renderCarrito(arrayCarrito)
+        cambiarCantidad(id)
     })
     const ultimasUnidades = document.createElement('p')
     ultimasUnidades.innerText = 'Ultimas Unidades!!'
@@ -70,26 +68,29 @@ function crearTarjeta(nombre, precio, imagen, descripcion, id, stock){
         tarjeta.appendChild(ultimasUnidades)
     }
 }
-const offcanvasBody = document.querySelector('.offcanvas-body') 
-var arrayCarrito = []
 
+const bodyTablaCarrito = document.querySelector('.bodyTablaCarrito')
+var arrayCarrito = []
 function renderCarrito(array){
-    offcanvasBody.innerHTML = ''
+    bodyTablaCarrito.innerHTML = ''
     array.map(producto => {
-        offcanvasBody.innerHTML += `
-        <div class='productoEnCarrito'>
-        <h6>${producto.nombre}</h6>
-        <div class='cantUnidades'>
-        <button id='btnMen ${producto.id}' class='unidadesMenos'>-</button>
-        <p id='uni ${producto.id}'>1</p>
-        <button id='btnMas ${producto.id}' class='unidadesMas'>+</button>
-        <p>Total: $${producto.precio}<p>
-        </div>
-        </div>
+        bodyTablaCarrito.innerHTML += `
+            <tr>
+                <th scope="col">${producto.nombre}</th>
+                <th scope="col"><button id='btnMen ${producto.id}' class='unidadesMenos'>-</button><button id='btnMas ${producto.id}' class='unidadesMas'>+</button></th>
+                <th scope="col">${producto.cantidad}</th>
+                <th scope="col">${producto.precio}</th>
+            </tr>
         `
     })
 }
 
+function cambiarCantidad(id){
+    document.getElementById(`btnMas ${id}`).addEventListener('click', function(){
+        console.log(parseInt(this.parentElement.parentElement.children[2].innerText) + 1)
+        renderCarrito(arrayCarrito)
+    })
+}
 
 
 //validacion formulario

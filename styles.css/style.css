@@ -230,7 +230,7 @@ footer div{
     color: #D6C675;
 }
 .card-img-top{
-    margin-left: 1.9vw;
+    margin:auto
 }
 .back{
     position: absolute;
@@ -418,15 +418,26 @@ form button{
 }
 .offcanvas-body{
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 .productoEnCarrito{
     border: 1px solid black;
     border-radius: 5px;
+    margin-right: 1vw ;
+    width: 15vw;
+}
+.productoEnCarrito h6{
+    margin-top: 1vh;
 }
 .cantUnidades{
     display: flex;
     justify-content: space-between;
+}
+.cantUnidades div{
+    display: flex;
+}
+.cantUnidades div p{
+    margin: 0vh 1vw;
 }
 .redSocial{
     width: 2vw;
@@ -458,4 +469,10 @@ form button{
 }
 .volverHomeContacto a:hover{
     color: #66343B;
+}
+#areaComentario{
+    resize: none;
+}
+.material-icons{
+    margin-right: 0.6vw;
 }
