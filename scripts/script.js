@@ -57,13 +57,7 @@ function crearTarjeta(nombre, precio, imagen, descripcion, id, stock){
         ultimasUnidades.style.display = 'block'
     })
     document.getElementById(`${id}`).addEventListener('click', function(e){
-        arrayCarrito.forEach(producto =>{
-            if(producto.id == this.id){
-                producto.cantidad += 1
-            }else{
-                arrayCarrito.push({nombre: nombre, precio: precio, id:id, cantidad: 1})
-            }
-        })   
+        arrayCarrito.push({nombre: nombre, precio: precio, id:id, cantidad: 1})
         renderCarrito(arrayCarrito) 
         console.log(arrayCarrito)
     })

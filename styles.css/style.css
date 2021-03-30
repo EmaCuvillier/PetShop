@@ -272,6 +272,7 @@ footer div{
     margin: auto;
     margin-bottom: 5vh;
     width: 80vw;
+    
 }
 .cadaInfoCompras{
     display: flex;
@@ -356,6 +357,9 @@ form button{
     text-decoration: none;
     color: black;
     margin-bottom: 1vh;
+}
+.verDescripcion:hover{
+    cursor:pointer;
 }
 .anadirCarrito{
     margin-left: 0.7vw;
