@@ -48,8 +48,8 @@ footer{
     background-color: #66343B;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0vh 8vw;
+    align-items: flex-start;
+    padding: 2vh 8vw 0vh 8vw;
 }
 #logoFooter{
     width: 7vw;
@@ -336,16 +336,6 @@ form button{
     margin-right: 3vw;
     text-align: center;
 }
-.informacionFormulario a{
-    background-color: #d6c675;
-    color: #66343B;
-    border-radius: 5px;
-    text-decoration: none;
-    padding: 1vh 2vw;
-}
-.informacionFormulario a:hover{
-    color: #66343B;
-}
 .footerContacto{
     display: flex;
     justify-content: center;
@@ -441,4 +431,31 @@ form button{
 .redSocial{
     width: 2vw;
     margin-right: 1vw;
+}
+.tituloFooter{
+    color: black;
+    text-align: center;
+}
+.parrafoFooter{
+    color: black;
+    font-size: 2.3vh;
+}
+.aFooter{
+    text-decoration: none;
+}
+.volverHomeContacto{
+    margin-top: 6vh;
+}
+#contactoRedSocial{
+    background-color: none;
+}
+.volverHomeContacto a{
+    background-color: #d6c675;
+    color: #66343B;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 1vh 2vw;
+}
+.volverHomeContacto a:hover{
+    color: #66343B;
 }
