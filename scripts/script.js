@@ -32,7 +32,9 @@ function crearTarjeta(nombre, precio, imagen, descripcion, id, stock){
         tarjeta.className = 'card tarjetaProducto hvr-grow-shadow'
         tarjeta.innerHTML = `
         <div class='font'>
-            <img src='${imagen}' class='card-img-top' style="width: 10vw;" alt='${nombre}'>
+            <div class='card-img-top'>
+               <img src='${imagen}' style="width: 10vw;" alt='${nombre}'>
+            </div>
             <div class="card-body">
                <h6 class="card-title">${nombre}</h6>
                <p class="card-text">$${precio}</p>
