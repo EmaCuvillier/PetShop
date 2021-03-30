@@ -57,8 +57,14 @@ function crearTarjeta(nombre, precio, imagen, descripcion, id, stock){
         ultimasUnidades.style.display = 'block'
     })
     document.getElementById(`${id}`).addEventListener('click', function(e){
-        arrayCarrito.push({nombre: nombre, precio: precio, id:id})
-        renderCarrito()
+        arrayCarrito.forEach(producto =>{
+            if(producto.id == this.id){
+                producto.cantidad += 1
+            }else{
+                arrayCarrito.push({nombre: nombre, precio: precio, id:id, cantidad: 1})
+            }
+        })   
+        renderCarrito(arrayCarrito) 
         console.log(arrayCarrito)
     })
     const ultimasUnidades = document.createElement('p')
@@ -68,34 +74,23 @@ function crearTarjeta(nombre, precio, imagen, descripcion, id, stock){
         tarjeta.appendChild(ultimasUnidades)
     }
 }
-
+const offcanvasBody = document.querySelector('.offcanvas-body') 
 var arrayCarrito = []
 
-const cuerpoCarrito = document.getElementById('cuerpoCarrito')
-
-var divCarrito = document.createElement('div');
-divCarrito.className = 'contenedorProductosCarrito'
-if(cuerpoCarrito){
-    cuerpoCarrito.appendChild(divCarrito)
-}
-const productosCarrito = document.createElement('div')
-productosCarrito.className = 'productosCarrito'
-function renderCarrito (){
-    productosCarrito.innerHTML = ''
-    arrayCarrito.map(producto => {
-        productosCarrito.innerHTML = `
-        <div class="cadaProductoCarrito">
-            <div class="d-flex justify-content-center">
-               <h4>${producto.nombre}</h4>
-            </div>
-            <div class="d-flex justify-content-center">
-               <p><button class="unidadesMenos">-</button> 1 <button class="unidadesMas"> +</button></p>
-               <p>$${producto.precio}</p>
-               <p><button class='closeProducto'>X</button></p>
-            </div>
+function renderCarrito(array){
+    offcanvasBody.innerHTML = ''
+    array.map(producto => {
+        offcanvasBody.innerHTML += `
+        <div class='productoEnCarrito'>
+        <h6>${producto.nombre}</h6>
+        <div class='cantUnidades'>
+        <button id='btnMen ${producto.id}' class='unidadesMenos'>-</button>
+        <p id='uni ${producto.id}'>1</p>
+        <button id='btnMas ${producto.id}' class='unidadesMas'>+</button>
+        <p>Total: $${producto.precio}<p>
+        </div>
         </div>
         `
-        divCarrito.appendChild(productosCarrito)
     })
 }
 
