@@ -3,7 +3,6 @@ fetch('https://apipetshop.herokuapp.com/api/articulos')
 .then(data => miPrograma(data))
 .catch(error => console.log(error))
 
-var productos
 function miPrograma(data){
     for(let i = 0; i < data.response.length; i++){
         if(productosFiltrosFarmacia && data.response[i].tipo == 'Medicamento'){
@@ -59,7 +58,6 @@ function crearTarjeta(nombre, precio, imagen, descripcion, id, stock){
     document.getElementById(`${id}`).addEventListener('click', function(e){ 
         arrayCarrito.push({nombre: nombre, precio: precio, id:id, cantidad: 1})
         renderCarrito(arrayCarrito)
-        cambiarCantidad(id)
     })
     const ultimasUnidades = document.createElement('p')
     ultimasUnidades.innerText = 'Ultimas Unidades!!'
@@ -82,13 +80,6 @@ function renderCarrito(array){
                 <th scope="col">${producto.precio}</th>
             </tr>
         `
-    })
-}
-
-function cambiarCantidad(id){
-    document.getElementById(`btnMas ${id}`).addEventListener('click', function(){
-        console.log(parseInt(this.parentElement.parentElement.children[2].innerText) + 1)
-        renderCarrito(arrayCarrito)
     })
 }
 

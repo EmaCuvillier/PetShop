@@ -28,6 +28,9 @@ nav{
     font-size: 4vh;
     font-family: cursive;
 }
+.logo h1{
+    font-family: 'Roboto Condensed', sans-serif;
+}
 nav a{
     text-decoration: none;
     margin-left: 2vw;
@@ -303,7 +306,7 @@ footer div{
 form{
     border: 1px solid black;
     border-radius: 10px;
-    margin-right: 6vw;
+    margin-right: 2vw;
     width: 50vw;
     padding: 1vh 1vw;
 }
