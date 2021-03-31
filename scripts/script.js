@@ -55,10 +55,11 @@ function crearTarjeta(nombre, precio, imagen, descripcion, id, stock){
         this.parentElement.className = 'back invisible'
         ultimasUnidades.style.display = 'block'
     })
+    /*
     document.getElementById(`${id}`).addEventListener('click', function(e){ 
         arrayCarrito.push({nombre: nombre, precio: precio, id:id, cantidad: 1})
         renderCarrito(arrayCarrito)
-    })
+    })*/
     const ultimasUnidades = document.createElement('p')
     ultimasUnidades.innerText = 'Ultimas Unidades!!'
     ultimasUnidades.className = 'ultimasUnidades'
@@ -66,7 +67,7 @@ function crearTarjeta(nombre, precio, imagen, descripcion, id, stock){
         tarjeta.appendChild(ultimasUnidades)
     }
 }
-
+/*
 const bodyTablaCarrito = document.querySelector('.bodyTablaCarrito')
 var arrayCarrito = []
 function renderCarrito(array){
@@ -82,7 +83,7 @@ function renderCarrito(array){
         `
     })
 }
-
+*/
 
 //validacion formulario
 const email = document.getElementById('mail')
